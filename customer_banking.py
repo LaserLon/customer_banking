@@ -43,7 +43,7 @@ def account_details(header):
     """Prompts the user to enter account details.
 
     Args:
-        header (str): The header for the output.
+        header (str): The account specific header.
 
     Returns:
         the balance (float), interest rate (float), and maturity (int).

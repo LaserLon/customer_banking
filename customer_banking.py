@@ -37,9 +37,8 @@ def print_details(header, updated_balance, interest_earned):
         interest_earned (float): The interest earned on the account.
     """
     print (header)
-    print (f"Interest earned: {interest_earned:.2f}")
-    print (f"Current balance: {updated_balance:.2f}\n")
-        
+    print (f"Interest earned: ${interest_earned:,.2f}")
+    print (f"Current balance: ${updated_balance:,.2f}\n")
 def account_details(header):
     """Prompts the user to enter account details.
 
@@ -50,13 +49,13 @@ def account_details(header):
         the balance (float), interest rate (float), and maturity (int).
     """
     print(header)
-    balance = input_num("Enter current balance: ")
-    interest = input_num("Enter current interest rate: ")
-    maturity = input_num("Enter total number of months: ")
-    return float(balance), float(interest), int(maturity)
+    balance = input_float("Enter current balance: ")
+    interest = input_float("Enter current interest rate: ")
+    maturity = input_int("Using whole numbers only, enter total number of months: ")
+    return balance, interest, maturity
 
-# prompt for a numeric input and verify the input is a number
-def input_num(prompt):
+# prompt for a numeric input and verify the input is a float
+def input_float(prompt):
     """Prompts the user for a numeric input and validates it.
 
     Args:
@@ -71,6 +70,23 @@ def input_num(prompt):
             return float(value)  # Try converting to float to validate the input
         except ValueError:
             print("Invalid entry. Please enter a number.\n")
+
+# prompt for a numeric input and verify the input is a int
+def input_int(prompt):
+    """Prompts the user for a numeric input and validates it.
+
+    Args:
+        prompt (str): The prompt message for the user.
+
+    Returns:
+        The validated numeric input (int)
+    """
+    while True:
+        value = input(prompt)
+        try:
+            return int(value)  # Try converting to int to validate the input
+        except ValueError:
+            print("Invalid entry. Please enter a whole number.\n")
 
 if __name__ == "__main__":
     # Call the main function.
